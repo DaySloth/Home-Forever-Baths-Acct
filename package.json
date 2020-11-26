@@ -1,0 +1,22 @@
+{
+  "name": "home-forever-baths-acct",
+  "version": "1.0.0",
+  "description": "accounting software for home forever baths",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaySloth/Home-Forever-Baths-Acct.git"
+  },
+  "author": "Allister Rampenthal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaySloth/Home-Forever-Baths-Acct/issues"
+  },
+  "homepage": "https://github.com/DaySloth/Home-Forever-Baths-Acct#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
