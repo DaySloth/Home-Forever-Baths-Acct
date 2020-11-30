@@ -12,4 +12,8 @@ module.exports = (app)=> {
     app.get('/user/register/'+ process.env.REGISTER_KEY + '/:uuid', (req, res)=>{
         res.render('register', {uuid: req.params.uuid})
     });
+
+    app.post('/user/register', (req, res) => {
+        console.log(req.body);
+    });
 }
