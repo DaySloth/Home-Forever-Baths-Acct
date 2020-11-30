@@ -24,7 +24,7 @@ app.use(session({
 //sending app to routes
 const htmlRoutes = require("./routes/htmlRoutes")(app);
 //const apiRoutes = require("./routes/apiRoutes")(app);
-//const userRoutes = require("./routes/userRoutes")(app);
+const userRoutes = require("./routes/userRoutes")(app);
 
 app.listen(PORT, ()=>{
     console.log(`Listening on port: ${PORT}`);
