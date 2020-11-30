@@ -1,13 +1,13 @@
-// const mongoose = require("mongoose");
-// mongoose.connect('localhost:27017/homeForeverBath');
-// const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeForeverBath", { useNewUrlParser: true,  useUnifiedTopology: true });
+const Schema = mongoose.Schema;
 
-// const userSchema = new Schema({
-//     email: String,
-//     password: String
-// });
+const userSchema = new Schema({
+    email: String,
+    password: String
+});
 
-//const UserDb = mongoose.model('User', userSchema);
+const UserDb = mongoose.model('User', userSchema);
 
 const users = {
     register: function(userObj) {
@@ -25,6 +25,6 @@ const users = {
         console.log(userObj);
     }
 
-}
+};
 
 module.exports = users;
