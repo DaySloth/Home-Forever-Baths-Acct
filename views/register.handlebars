@@ -1,27 +1,31 @@
-<h2>Register User {{uuid}}</h2>
+<h2>Register User</h2>
 <hr>
 
-<form class="ui form">
+<form class="ui form container" id="registerForm">
+    <div class="field">
+        <label for="uuid">UUID</label>
+        <input type="text" name="uuid" id="uuid" value="{{uuid}}" readonly>
+    </div>
     <div class="field">
         <label for="first_name">First Name</label>
-        <input type="text" name="first_name" placeholder="John" id="firstName">
+        <input type="text" name="first_name" placeholder="John" id="firstName" required>
     </div>
     <div class="field">
         <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" placeholder="Doe" id="lastName">
+        <input type="text" name="last_name" placeholder="Doe" id="lastName" required>
     </div>
     <div class="field">
         <label for="email">Email</label>
-        <input type="email" name="email" placeholder="your@email.com" id="emailInput">
+        <input type="email" name="email" placeholder="your@email.com" id="email" required>
     </div>
     <div class="field">
         <label for="password">Password</label>
-        <input type="password" name="password" id="passwordInput">
+        <input type="password" name="password" id="password" required>
     </div>
     <div class="field">
         <label for="confirm_password">Confirm Password</label>
-        <input type="password" name="confirm_password" id="confirmPasswordInput">
+        <input type="password" name="confirm_password" id="confirmPassword">
     </div>
     
-    <button class="ui button" type="submit" id="loginBtn">Register</button>
+    <button class="ui button" type="submit" id="registerBtn">Register</button>
 </form>
