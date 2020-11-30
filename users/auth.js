@@ -1,13 +1,13 @@
-const mongoose = require("mongoose");
-mongoose.connect('localhost:27017/homeForeverBath');
-const Schema = mongoose.Schema;
+// const mongoose = require("mongoose");
+// mongoose.connect('localhost:27017/homeForeverBath');
+// const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    email: String,
-    password: String
-});
+// const userSchema = new Schema({
+//     email: String,
+//     password: String
+// });
 
-const UserDb = mongoose.model('User', userSchema);
+//const UserDb = mongoose.model('User', userSchema);
 
 const users = {
     register: function(userObj) {
