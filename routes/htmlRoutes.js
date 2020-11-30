@@ -1,21 +1,34 @@
-module.exports = (app)=>{
-    app.get("/", (req, res)=>{
-        res.render("index");
+module.exports = (app) => {
+
+    app.get("/", (req, res) => {
+        if (req.user) {
+            res.render("index");
+        } else {
+            res.redirect("/login")
+        };
     });
 
-    app.get("/todo", (req, res)=>{
-        res.render("todo")
+    app.get("/todo", (req, res) => {
+        if (req.user) {
+            res.render("todo");
+        } else {
+            res.redirect("/login")
+        };
     });
 
-    app.get("/history", (req, res)=>{
-        res.render("history")
+    app.get("/history", (req, res) => {
+        if (req.user) {
+            res.render("history");
+        } else {
+            res.redirect("/login")
+        };
     });
 
-    app.get("/login", (req, res)=>{
+    app.get("/login", (req, res) => {
         res.render("login");
     });
 
-    app.get("/logout", (req, res)=>{
-        
+    app.get("/logout", (req, res) => {
+
     });
 }
