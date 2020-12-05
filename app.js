@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 4444;
 
 //Using js and css files
 app.use(express.static("public"));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 //setting view-engine
 const exphbs = require("express-handlebars");
@@ -19,13 +21,21 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {}
-}))
+}));
+
+//setting database connection
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeForeverBath", {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+});
 
 //sending app to routes
 const htmlRoutes = require("./routes/htmlRoutes")(app);
 //const apiRoutes = require("./routes/apiRoutes")(app);
 const userRoutes = require("./routes/userRoutes")(app);
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
 });
