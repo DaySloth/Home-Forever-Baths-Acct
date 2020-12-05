@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/DaySloth/Home-Forever-Baths-Acct#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
-    "mongoose": "^5.10.16"
+    "mongoose": "^5.10.16",
+    "shortid": "^2.2.16"
   }
 }
