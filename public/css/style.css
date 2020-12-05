@@ -1,0 +1,9 @@
+#message {
+    margin: 20px 0;
+}
+
+#errorMessage {
+    margin: 20px 0;
+    font-size: 16px;
+    color: red;
+}
