@@ -1,26 +1,37 @@
-const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeForeverBath", { useNewUrlParser: true,  useUnifiedTopology: true });
-const Schema = mongoose.Schema;
-
-const userSchema = new Schema({
-    email: String,
-    password: String
-});
-
-const UserDb = mongoose.model('User', userSchema);
+const UserDb = require("../models/user.js");
+const bcrypt = require("bcrypt");
 
 const users = {
-    register: function(userObj) {
-        console.log("register");
-        console.log(userObj);
+    register: function (userObj) {
+        return new Promise((resolve, reject) => {
+            userObj.password = bcrypt.hashSync(userObj.password, 10);
+            UserDb.findOne({email: userObj.email}, (err, existingUser)=>{
+                if(existingUser){
+
+                reject("Email already in use");
+
+                } else {
+                    UserDb.create(userObj)
+                .then((data) => {
+                    resolve(data)
+                })
+                .catch((error) => {
+                    reject("Couldn't add user");
+                });
+                }
+            })
+            
+        })
+
     },
 
-    login: function(userObj) {
+    login: function (userObj) {
         console.log("login");
         console.log(userObj);
+        //const comparePass = bcrypt.compareSync(userObj.password, dbPassword);
     },
 
-    delete: function(userObj) {
+    delete: function (userObj) {
         console.log("delete");
         console.log(userObj);
     }
