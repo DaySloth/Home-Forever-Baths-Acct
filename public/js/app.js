@@ -1,8 +1,23 @@
+//Main page
+$('#paidInFullBtn').click(function(e){  
+    e.preventDefault();    
+    $(this).toggleClass('active');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //User Register / Login
-
-function storeUser(user) {
-
-}
 
 $('#password, #confirmPassword').on('keyup', function () {
     if ($('#password').val() == $('#confirmPassword').val()) {
@@ -24,7 +39,7 @@ $('#registerForm').on("submit", (event) => {
         };
 
         $.post('/user/register', userObj)
-            .then(response=>{
+            .then(response => {
                 console.log("hi");
                 window.location.href = "/";
             })
@@ -46,8 +61,38 @@ $('#loginForm').on("submit", (event) => {
         email: ($('#email').val()).toUpperCase(),
         password: $('#password').val(),
     };
-    console.log(userObj);
+
     //call to login
-    //$.post("/user/login")
-    //redirect
+    $.post('/user/login', userObj)
+        .then(response => {
+            window.location.href = "/";
+        })
+        .catch((error) => {
+            $('#errorMessage').html(error.responseText);
+        });
+});
+
+$('#deleteForm').on("submit", (event) => {
+    event.preventDefault();
+
+    const deleteObj = {
+        uuid: $("#uuid").val(),
+        password: $("#password").val()
+    }
+
+    //call to login
+    $.ajax({
+        url: '/user/delete',
+        type: 'DELETE',
+        data: deleteObj
+    })
+    .then(response => {
+        $('#errorMessage').html("");
+        $('#successMessage').html(`Successfully deleted <span class='deletedName'>${response.first_name} ${response.last_name}<span> <br> <a href='/login'> return to login</a>`);
+    })
+    .catch((error) => {
+        $('#successMessage').html("");
+        $('#errorMessage').html(error.responseText);
+    });
+            
 });
