@@ -1,0 +1,17 @@
+<h2>Delete User</h2>
+<hr>
+
+<form class="ui form container" id="deleteForm">
+    <div id="errorMessage"></div>
+    <div class="field">
+        <label for="uuid">UUID</label>
+        <input type="text" name="uuid" id="uuid" placeholder="uuid for user to delete" required>
+    </div>
+    <div class="field">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+    </div>
+    
+    <button class="ui button" type="submit" id="deleteBtn">Delete</button>
+    <div id="successMessage"></div>
+</form>
