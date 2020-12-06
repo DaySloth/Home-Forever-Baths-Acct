@@ -15,13 +15,19 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //setting express-session
-const session = require("express-session");
+const cookieParser = require('cookie-parser');
+const session = require("express-session"),
+    bodyParser = require("body-parser");
+
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {}
 }));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //setting database connection
 const mongoose = require("mongoose");
