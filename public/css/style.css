@@ -7,3 +7,31 @@
     font-size: 16px;
     color: red;
 }
+#successMessage {
+    margin: 20px 0;
+    font-size: 16px;
+    color: #009c00;
+}
+
+.deletedName {
+    font-weight: bold;
+    color: #006900;
+}
+
+.special-options{
+    display: inline-block;
+    margin: 20px 0 20px 50px;
+}
+
+.special-options div{
+    margin-right: 10px;
+}
+
+#installSubmitBtn, #paidInFullBtn{
+    margin-top: 20px;
+    display: block;
+}
+
+#installSubmitBtn{
+    margin: 10px auto;
+}
