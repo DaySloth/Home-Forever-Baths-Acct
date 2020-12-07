@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const installSchema = new Schema({
-    install_date: Date,
+    install_date: String,
     install_name: String,
     install_type: String,
     price: Number,
