@@ -1,7 +1,6 @@
 module.exports = (app) => {
 
     app.get("/", (req, res) => {
-        console.log(req.session.user);
         if (req.session.user) {
             res.render("index");
         } else {
