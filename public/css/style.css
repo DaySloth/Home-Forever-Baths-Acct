@@ -35,3 +35,43 @@
 #installSubmitBtn{
     margin: 10px auto;
 }
+
+.ui.toggle.button.paid{
+    background-color: green;
+    color: white;
+}
+
+.ui.toggle.button.unpaid{
+    background-color: red;
+    color: white;
+}
+
+.hide{
+    display: none;
+}
+
+#paymentStatusDiv{
+    margin-top: 10px;
+}
+
+#paymentStatusDiv button{
+    margin-top: 0;
+    display: inline-block;
+}
+
+#notesArea{
+    margin-top: 10px;
+}
+
+#feesDiv{
+    display: block;
+    width: 200px;
+}
+
+.feeItem{
+    color: red;
+}
+
+.ui.icon.button.delFeeBtn{
+    background-color: white;
+}
