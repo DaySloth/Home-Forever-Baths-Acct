@@ -18,8 +18,13 @@
 <form class="ui form container" id="installForm">
     <div id="errorMessage"></div>
     <div class="field">
+        <label for="date">Install date</label>
+        <input type="date" name="date" id="installDate" required>
+    </div>
+
+    <div class="field">
         <label for="install">Install name</label>
-        <input type="text" name="install" id="installName">
+        <input type="text" name="install" id="installName" required>
     </div>
 
     <div class="form-group field">
@@ -31,10 +36,12 @@
             <option>Tub bath</option>
         </select>
     </div>
-
-    <div class="ui labeled input">
-        <label for="isntallPrice" class="ui label">$</label>
-        <input type="number" placeholder="Price" id="installPrice">
+    <div class="field">
+        <label for="install">Price</label>
+        <div class="ui labeled input">
+            <label for="isntallPrice" class="ui label">$</label>
+            <input type="number" id="installPrice" required>
+        </div>
     </div>
 
     <div class="special-options">
@@ -67,15 +74,50 @@
 
     <div class="field">
         <label for="installer">Installer</label>
-        <input type="text" name="installer" id="installerName">
+        <input type="text" name="installer" id="installerName" required>
     </div>
 
     <div class="ui icon input">
-        <input type="number" placeholder="Fees">
-        <i class="inverted circular plus circle link icon"></i>
+        <input type="number" placeholder="Fees" id="feeInput">
+        <i class="inverted circular plus circle link icon" id="addFeeBtn"></i>
     </div>
 
-    <button class="ui toggle button small" id="paidInFullBtn">Paid in full</button>
+    <div class="ui list" id="feesDiv">
+    </div>
+
+    <div class="field" id="paymentStatusDiv">
+        <label>Payment status</label>
+        <button class="ui toggle button" id="paidInFullBtn">Paid in full</button>
+
+        <button class="ui toggle button" id="notPaidInFullBtn">Payment still needed</button>
+    </div>
+
+
+    <div class="field hide" id="paymentReceivedDiv">
+        <label for="paymentReceived">Payment received</label>
+        <div class="ui labeled input">
+            <label for="paymentReceived" class="ui label">$</label>
+            <input type="number" placeholder="Payment received" id="paymentReceivedInput">
+        </div>
+    </div>
+
+    <div class="ui labeled input">
+        <label for="paymentMethod" class="ui label"><i class="money bill alternate outline icon"></i> Payment
+            method</label>
+        <select class="form-control" id="paymentMethod">
+            <option>Credit Card</option>
+            <option>Check</option>
+            <option>TIME</option>
+            <option>Greensky</option>
+
+        </select>
+    </div>
+
+
+    <div class="field" id="notesArea">
+        <label for="notes mini">Notes</label>
+        <textarea name="notes" id="installNotes" cols="30" rows="10"></textarea>
+    </div>
 
     <button class="ui button large fluid" type="submit" id="installSubmitBtn">Submit install</button>
 </form>
