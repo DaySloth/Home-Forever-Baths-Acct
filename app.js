@@ -39,7 +39,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeForeverBath
 
 //sending app to routes
 const htmlRoutes = require("./routes/htmlRoutes")(app);
-//const apiRoutes = require("./routes/apiRoutes")(app);
+const apiRoutes = require("./routes/apiRoutes")(app);
 const userRoutes = require("./routes/userRoutes")(app);
 
 app.listen(PORT, () => {
