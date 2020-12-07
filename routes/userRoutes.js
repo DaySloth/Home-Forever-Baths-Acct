@@ -63,6 +63,7 @@ module.exports = (app) => {
             });
     });
 
+    //Deleteing users
     app.get('/user/delete/' + process.env.REGISTER_KEY, (req, res) => {
         res.render("delete");
     });
