@@ -1,0 +1,65 @@
+<div class="ui secondary pointing menu">
+    <a class="item" href="/">
+        Home
+    </a>
+    <a class="item active" href="/outstanding">
+        Outstanding
+    </a>
+    <a class="item" href="/history">
+        History
+    </a>
+    <div class="right menu">
+        <a class="ui item" href="/logout">
+            Logout
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    {{#if outstanding}}
+
+    {{#each outstanding}}
+    <div class="ui cards">
+        <div class="card">
+            <div class="content">
+                <div class="header">
+                    {{install_name}}
+                </div>
+                <div class="meta">
+                    {{install_date}}
+                </div>
+                <div class="description">
+                    <p>Price: ${{price}}</p>
+                    <p>Paid to date: ${{payment_received}}</p>
+                    <p>Outstanding balance: <span class="outstanding">${{outstanding_balance}}</span></p>
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="ui two buttons">
+                    <div class="ui positive basic button" data-id="{{_id}}">Pay in full</div>
+                    <div class="ui secondary basic button" data-id="{{_id}}">See Details</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+
+    {{else}}
+
+
+    <div class="ui icon message">
+        <i class="bath icon"></i>
+        <div class="content">
+            <div class="header">
+                No outstanding installs found
+            </div>
+            <p>Awesome job! Keep up the great work</p>
+        </div>
+    </div>
+
+
+    {{/if}}
+
+
+</div>
