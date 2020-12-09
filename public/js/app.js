@@ -76,10 +76,10 @@ $('#installForm').on("submit", (event) => {
 
     function calcInstallAmount() {
         let feeTotal = 0;
-        submitFees.forEach(fee=>{
-            feeTotal =+ fee
+        submitFees.forEach(fee => {
+            feeTotal = + fee
         });
-        
+
         return installPrice - feeTotal;
     };
 
@@ -101,16 +101,21 @@ $('#installForm').on("submit", (event) => {
     };
 
     $.post('/api/install', installObj)
-    .then(response=>{
-        console.log(response);
-    })
-    .catch(error=>{
-        console.log(error);
-    });
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
 });
 
 
+// Install details page
 
+$("#goBackBtn").click(e => {
+    e.preventDefault();
+    window.history.back();
+});
 
 
 
