@@ -1,0 +1,112 @@
+<button class="ui button" id="goBackBtn"><i class="angle left icon"></i>Go back</button>
+
+<div class="ui container">
+    <div class="ui centered grid form">
+
+        <div class="twelve wide column">
+            <h4 class="ui horizontal divider header">
+                <i class="clipboard list icon"></i>
+                Details
+            </h4>
+        </div>
+
+        <div class="field six wide column">
+            <label for="date">Install date</label>
+            <input type="date" name="date" id="installDate" value="{{install_date}}" readonly>
+        </div>
+
+        <div class="field six wide column">
+            <label for="install">Install name</label>
+            <input type="text" name="install" id="installName" value="{{install_name}}" readonly>
+        </div>
+
+        <div class="field six wide column">
+            <label for="type">Install type</label>
+            <input type="text" name="type" id="installType" value="{{install_type}}" readonly>
+        </div>
+
+        <div class='field six wide column' id="specialOptionsDiv">
+            <label for="specialOptions">Special options</label>
+            <div class="ui bulleted list">
+                {{#each special_options}}
+                <div class="item">{{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="twelve wide column">
+            <h4 class="ui horizontal divider header">
+                <i class="id badge outline icon"></i>
+                Sales / Installer
+            </h4>
+        </div>
+
+        <div class="form-group field six wide column">
+            <label for="salesman">Salesman</label>
+            <input type="text" name="salesman" id="salesman" value="{{salesman}}" readonly>
+        </div>
+
+        <div class="field six wide column">
+            <label for="installer">Installer</label>
+            <input type="text" name="installer" id="installerName" value="{{installer}}" readonly>
+        </div>
+
+        <div class="twelve wide column">
+            <h4 class="ui horizontal divider header">
+                <i class="money bill icon"></i>
+                Pricing
+            </h4>
+        </div>
+
+        <div class="field six wide column">
+            <label for="install">Install Price</label>
+            <div class="ui labeled input">
+                <label for="isntallPrice" class="ui label">$</label>
+                <input type="number" id="installPrice" value="{{price}}" readonly>
+            </div>
+        </div>
+
+        <div class="field six wide column" id="feesDiv">
+            <label for="specialOptions">Fees</label>
+            <div class="ui bulleted list">
+                {{#each fees}}
+                <div class="item">${{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="field six wide column">
+            <label for="paymentStatus">Payment Status</label>
+            <input type="text" name="paymentStatus" id="paymentStatus" value="{{payment_status}}" readonly>
+        </div>
+
+        <div class="field six wide column">
+            <label for="paymentDue">Outstanding balance</label>
+            <div class="ui labeled input">
+                <label for="paymentDue" class="ui label">$</label>
+                <input type="number" id="paymentDue" value="{{outstanding_balance}}" readonly>
+            </div>
+        </div>
+
+        <div class="ui labeled input eight wide column">
+            <div class="ui labeled input">
+                <label for="paymentMethod" class="ui label"><i class="money bill alternate outline icon"></i> Payment
+                    method</label>
+                <input type="text" id="paymentMethod" value="{{payment_method}}" readonly>
+            </div>
+        </div>
+
+        <div class="ui labeled input twelve wide column">
+            <div class="ui positive button large fluid payInFull paid" data-id="{{_id}}">Pay in full</div>
+        </div>
+
+        <div class="field twelve wide column" id="notesArea">
+            <label for="notes mini">Notes</label>
+            <textarea name="notes" id="installNotes" cols="30" rows="5">{{notes}}</textarea>
+        </div>
+    </div>
+
+    {{#if hasAccounting}}
+    
+    {{/if}}
+</div>
