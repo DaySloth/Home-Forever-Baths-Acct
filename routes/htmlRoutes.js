@@ -12,18 +12,18 @@ module.exports = (app) => {
 
     app.get("/outstanding", (req, res) => {
         if (req.session.user) {
-            installDb.find({payment_status: "Outstanding"}).lean()
-            .then(data=>{
-                if(data.length > 0){
-                    res.render("outstanding", {outstanding: data});
-                }else {
-                    res.render('outstanding');
-                };
-            })
-            .catch(error=>{
-                console.log(error)
-            });
-            
+            installDb.find({ payment_status: "Outstanding" }).lean()
+                .then(data => {
+                    if (data.length > 0) {
+                        res.render("outstanding", { outstanding: data });
+                    } else {
+                        res.render('outstanding');
+                    };
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+
         } else {
             res.redirect("/login")
         };
@@ -35,6 +35,14 @@ module.exports = (app) => {
         } else {
             res.redirect("/login")
         };
+    });
+
+    app.get('/install/details/:uuid', (req, res) => {
+        installDb.findById(req.params.uuid)
+        .then(installFound=>{
+            res.render('install-details', installFound);
+        })
+        
     });
 
 }
