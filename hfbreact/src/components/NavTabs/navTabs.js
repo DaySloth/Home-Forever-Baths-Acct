@@ -16,9 +16,15 @@ function NavTabs(){
                 History
             </a>
             <div className="right menu">
-                <a className="ui item" href="/logout">
-                    Logout
-                </a>
+                {path === "/login" ?
+                    <a className="ui item active" href="/logout">
+                        Login
+                    </a>
+                    : 
+                    <a className="ui item" href="/logout">
+                        Logout
+                    </a> }
+                
             </div>
         </div>
     )
