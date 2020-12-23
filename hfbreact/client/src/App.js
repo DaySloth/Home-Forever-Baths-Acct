@@ -1,40 +1,16 @@
-import React, { useContext } from "react";
-import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Wrapper from './components/Wrapper/wrapper.js';
 import NavTabs from "./components/NavTabs/navTabs.js";
-import Home from "./pages/home/home.js";
-import Outstanding from "./pages/outstanding/outstanding.js";
-import History from "./pages/history/history.js";
-import Login from "./pages/login/login.js";
-import Register from "./pages/register/register.js";
-import UserContext from "./utils/context/userContext.js";
+import {useAuth0} from '@auth0/auth0-react';
+import './app.css';
 
 function App() {
 
-  const { user } = useContext(UserContext);
   return (
     <Router>
-          <NavTabs />
-
-          <Route exact path="/">
-            {user.loggedIn ? <Home /> : <Redirect to="/login" />}
-          </Route>
-
-          <Route path="/outstanding">
-            {user.loggedIn ? <Outstanding /> : <Redirect to="/login" />}
-          </Route>
-
-          <Route path="/history">
-            {user.loggedIn ? <History /> : <Redirect to="/login" />}
-          </Route>
-
-          <Route path="/login">
-            <Login />
-          </Route>
-
-          <Route exact path="/user/register">
-            <Register />
-          </Route>
-
+    <NavTabs />
+    {useAuth0().isLoading ? <div className="spinner"><i className="fas fa-cog fa-spin fa-10x"></i></div> : <Wrapper/>}
     </Router>
   );
 }
