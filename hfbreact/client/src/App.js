@@ -5,6 +5,7 @@ import Home from "./pages/home/home.js";
 import Outstanding from "./pages/outstanding/outstanding.js";
 import History from "./pages/history/history.js";
 import Login from "./pages/login/login.js";
+import Register from "./pages/register/register.js";
 import UserContext from "./utils/context/userContext.js";
 
 function App() {
@@ -29,6 +30,11 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
+
+          <Route exact path="/user/register">
+            <Register />
+          </Route>
+
     </Router>
   );
 }
