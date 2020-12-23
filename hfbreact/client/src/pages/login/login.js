@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import UserContext from "../../utils/context/userContext.js";
 
-
 function Login(){
 
     const { loginUser } = useContext(UserContext)
