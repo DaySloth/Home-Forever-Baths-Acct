@@ -1,24 +1,15 @@
 import axios from 'axios';
-
 const API = {
-    getUser: ()=> {
+    getOutstandingInstalls: ()=> {
         return new Promise((resolve, reject)=>{
-            axios.get('/user')
-            .then(res=>{resolve(res.data)});
+            axios.get("/api/install/outstanding")
+            .then(res=>{resolve(res)})
         })
     },
-    login: (userObj)=> {
+    getAllInstalls: ()=>{
         return new Promise((resolve, reject)=>{
-            axios.post('/user/login', userObj)
-            .then(res=>{resolve(res.data)})
-            .catch(err=>{reject(err)});
-        })
-    },
-    register: (userObj)=>{
-        return new Promise ((resolve, reject)=> {
-            axios.post('/user/register', userObj)
-            .then(res=> { resolve(res.data) })
-            .catch(err=> { reject("Email already in use") });
+            axios.get("/api/install")
+            .then(res=>{resolve(res)})
         })
     }
 };
