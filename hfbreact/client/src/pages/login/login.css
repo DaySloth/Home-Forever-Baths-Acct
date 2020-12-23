@@ -1,0 +1,10 @@
+.loginBtn{
+    margin: 20% auto;
+    text-align: center;
+    width: 500px;
+    font-size: 2rem;
+}
+
+.loginBtn label{
+    margin-bottom: 20px;
+}
