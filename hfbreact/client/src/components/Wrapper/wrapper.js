@@ -30,7 +30,11 @@ function Wrapper(props){
 
     function loginUser(userObj) {
         API.login(userObj)
-    }
+    };
+
+    function registerUser(userObj) {
+        API.register(userObj)
+    };
 
     return(
 
