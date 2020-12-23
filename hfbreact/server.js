@@ -1,5 +1,5 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -13,6 +13,8 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
+
+
 // Add routes, both API and view
 app.use(routes);
 
