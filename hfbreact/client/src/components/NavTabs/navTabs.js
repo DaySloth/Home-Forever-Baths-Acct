@@ -5,7 +5,6 @@ import {useAuth0} from '@auth0/auth0-react';
 function NavTabs(){
     const {user, logout} = useAuth0();
     let path = useLocation().pathname;
-    console.log(user);
 
     return (
         <div className="ui secondary pointing menu">
