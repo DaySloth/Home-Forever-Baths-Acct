@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import InstallContext from "../../utils/context/installContext.js";
 import UserContext from "../../utils/context/userContext.js";
-import Auth from "../../utils/auth/auth.js";
+import API from "../../utils/api/API.js";
 
 function Wrapper(props){
 
     const [user, setUser] = useState({
-        loggedIn: false,
+        loggedIn: true,
         first_name: "",
         last_name: "",
         email: "",
@@ -29,7 +29,7 @@ function Wrapper(props){
     });
 
     function loginUser(userObj) {
-        console.log(userObj);
+        API.login(userObj)
     }
 
     return(
